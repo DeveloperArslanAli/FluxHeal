@@ -1,0 +1,53 @@
+services:
+  timescaledb:
+    image: timescale/timescaledb:latest-pg16
+    container_name: fluxheal-timescaledb
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "1234"
+      POSTGRES_DB: fluxheal
+    ports:
+      - "${TIMESCALEDB_PORT:-5436}:5432"
+    volumes:
+      - timescale_data:/var/lib/postgresql/data
+      - ./server/src/db/schema.sql:/docker-entrypoint-initdb.d/01-init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d fluxheal"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: fluxheal-backend
+    restart: always
+    environment:
+      PG_HOST: timescaledb
+      PG_PORT: 5432
+      PG_USER: postgres
+      PG_PASSWORD: "1234"
+      PG_DATABASE: fluxheal
+      PORT: 4000
+    ports:
+      - "4000:4000"
+    depends_on:
+      timescaledb:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: fluxheal-frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  timescale_data:
+    driver: local

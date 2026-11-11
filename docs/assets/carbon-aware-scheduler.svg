@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="c-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="solar-area" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0.0" />
+    </linearGradient>
+    <linearGradient id="dirty-area" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#EF4444" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#EF4444" stop-opacity="0.0" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1100" height="360" rx="14" fill="url(#c-bg)" stroke="#334155" stroke-width="1.5" />
+
+  <text x="550" y="38" font-family="-apple-system, sans-serif" font-size="20" font-weight="800" fill="#F8FAFC" text-anchor="middle">
+    Carbon-Aware Grid Intensity Scheduler (CAISO / ERCOT)
+  </text>
+  <text x="550" y="60" font-family="'JetBrains Mono', monospace" font-size="12" fill="#94A3B8" text-anchor="middle">
+    Diurnal Solar Surplus Clean Windows &bull; Peak Dirty Hour Deferral &bull; Avoided Scope 3 Emissions
+  </text>
+
+  <!-- Graph Axis & Canvas (X: 100 to 1000, Y: 90 to 290) -->
+  <g stroke="#334155" stroke-width="1">
+    <line x1="100" y1="290" x2="1000" y2="290" />
+    <line x1="100" y1="90" x2="100" y2="290" />
+    <line x1="100" y1="190" x2="1000" y2="190" stroke-dasharray="3 3" opacity="0.4" />
+  </g>
+
+  <!-- Y-Axis Labels -->
+  <text x="90" y="95" font-family="'JetBrains Mono', monospace" font-size="10" fill="#EF4444" text-anchor="end">450 gCO₂</text>
+  <text x="90" y="195" font-family="'JetBrains Mono', monospace" font-size="10" fill="#F59E0B" text-anchor="end">300 gCO₂</text>
+  <text x="90" y="250" font-family="'JetBrains Mono', monospace" font-size="10" fill="#10B981" text-anchor="end">180 gCO₂</text>
+
+  <!-- Dirty Threshold Line -->
+  <line x1="100" y1="190" x2="1000" y2="190" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="4 4" />
+  <text x="1005" y="194" font-family="'JetBrains Mono', monospace" font-size="10" fill="#F59E0B">Threshold (300 gCO₂/kWh)</text>
+
+  <!-- Dirty Peak Fill (Evening: 17:00 to 22:00 -> X: 640 to 920) -->
+  <path d="M 640 190 Q 780 110 920 190 Z" fill="url(#dirty-area)" />
+  <path d="M 640 190 Q 780 110 920 190" stroke="#EF4444" stroke-width="2.5" fill="none" />
+
+  <!-- Clean Solar Window Fill (10:00 to 16:00 -> X: 320 to 640) -->
+  <path d="M 320 290 Q 480 230 640 290 Z" fill="url(#solar-area)" />
+  <path d="M 320 290 Q 480 230 640 290" stroke="#10B981" stroke-width="2.5" fill="none" />
+
+  <!-- Full Intensity Curve across 24h -->
+  <!-- 00:00(100,240) -> 06:00(240,220) -> 10:00(380,260) -> 13:00(480,275) -> 17:00(640,190) -> 20:00(760,120) -> 24:00(1000,230) -->
+  <path d="M 100 230 C 180 220, 260 210, 340 240 C 420 270, 500 275, 580 250 C 640 190, 720 120, 800 130 C 880 150, 940 210, 1000 230" 
+        stroke="#06B6D4" stroke-width="2" fill="none" />
+
+  <!-- Time Labels on X-Axis -->
+  <text x="100" y="310" font-family="'JetBrains Mono', monospace" font-size="10" fill="#94A3B8" text-anchor="middle">00:00</text>
+  <text x="250" y="310" font-family="'JetBrains Mono', monospace" font-size="10" fill="#94A3B8" text-anchor="middle">04:00</text>
+  <text x="400" y="310" font-family="'JetBrains Mono', monospace" font-size="10" fill="#94A3B8" text-anchor="middle">08:00</text>
+  <text x="480" y="310" font-family="'JetBrains Mono', monospace" font-size="10" fill="#10B981" font-weight="700" text-anchor="middle">12:00 (Solar Peak)</text>
+  <text x="640" y="310" font-family="'JetBrains Mono', monospace" font-size="10" fill="#94A3B8" text-anchor="middle">16:00</text>
+  <text x="780" y="310" font-family="'JetBrains Mono', monospace" font-size="10" fill="#EF4444" font-weight="700" text-anchor="middle">20:00 (Dirty Peak)</text>
+  <text x="1000" y="310" font-family="'JetBrains Mono', monospace" font-size="10" fill="#94A3B8" text-anchor="middle">24:00</text>
+
+  <!-- Action Annotations -->
+  <g transform="translate(420, 130)">
+    <rect width="180" height="48" rx="6" fill="#1E293B" stroke="#10B981" stroke-width="1.2" />
+    <text x="90" y="20" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#10B981" text-anchor="middle">☀️ CLEAN WINDOW FLUSH</text>
+    <text x="90" y="36" font-family="'JetBrains Mono', monospace" font-size="9" fill="#94A3B8" text-anchor="middle">Immediate Execution (0g Avoided)</text>
+  </g>
+
+  <g transform="translate(710, 70)">
+    <rect width="190" height="48" rx="6" fill="#1E293B" stroke="#EF4444" stroke-width="1.2" />
+    <text x="95" y="20" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#EF4444" text-anchor="middle">⛔ DIRTY PEAK DEFERRAL</text>
+    <text x="95" y="36" font-family="'JetBrains Mono', monospace" font-size="9" fill="#94A3B8" text-anchor="middle">ELT Batches Queued to Memory</text>
+  </g>
+</svg>
+

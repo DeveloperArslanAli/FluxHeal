@@ -1,0 +1,60 @@
+# ==============================================================================
+# FluxHeal (AuraFlow) — Git Ignore Configuration
+# ==============================================================================
+
+# 1. Dependencies
+node_modules/
+*/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 2. Build & Compilation Artifacts
+dist/
+*/dist/
+build/
+*/build/
+out/
+*/out/
+*.tsbuildinfo
+.vite/
+*/.vite/
+
+# 3. Environment Variables & Credentials
+.env
+.env.local
+.env.*.local
+*.env
+server/.env
+client/.env
+!.env.example
+
+# 4. Local Database & Persistent Volumes
+data/
+*/data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+timescale_data/
+docker-compose.override.yml
+
+# 5. OS & Editor Specific Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# 6. Antigravity & Agentic Cache
+.gemini/
+.agy/
+.system_generated/

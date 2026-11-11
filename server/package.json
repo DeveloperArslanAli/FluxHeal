@@ -1,0 +1,32 @@
+{
+  "name": "fluxheal-server",
+  "version": "1.0.0",
+  "description": "FluxHeal (AuraFlow) - Autonomous Self-Healing ETL/ELT Data Pipeline Backend",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "vitest run --fileParallelism=false",
+    "demo:stream": "tsx src/scripts/demo-stream.ts",
+    "db:init": "tsx src/scripts/init-db.ts",
+    "pg:inspect": "tsx src/scripts/inspect-pg.ts",
+    "pg:verify": "tsx src/scripts/verify-phase5.ts"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pg": "^8.13.3",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.5",
+    "@types/pg": "^8.11.11",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.6"
+  }
+}

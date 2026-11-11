@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19" />
+      <stop offset="50%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#0B0F19" />
+    </linearGradient>
+    <linearGradient id="emerald-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="420" rx="16" fill="url(#bg-grad)" stroke="#1E293B" stroke-width="2" />
+
+  <!-- Subtle Circuit Grid Lines -->
+  <g opacity="0.12" stroke="#06B6D4" stroke-width="1">
+    <line x1="100" y1="0" x2="100" y2="420" />
+    <line x1="300" y1="0" x2="300" y2="420" />
+    <line x1="500" y1="0" x2="500" y2="420" />
+    <line x1="700" y1="0" x2="700" y2="420" />
+    <line x1="900" y1="0" x2="900" y2="420" />
+    <line x1="1100" y1="0" x2="1100" y2="420" />
+    <line x1="0" y1="80" x2="1200" y2="80" />
+    <line x1="0" y1="180" x2="1200" y2="180" />
+    <line x1="0" y1="280" x2="1200" y2="280" />
+    <line x1="0" y1="360" x2="1200" y2="360" />
+  </g>
+
+  <!-- Ambient Glow Blobs -->
+  <circle cx="240" cy="140" r="120" fill="#10B981" opacity="0.08" filter="url(#glow)" />
+  <circle cx="960" cy="220" r="140" fill="#06B6D4" opacity="0.08" filter="url(#glow)" />
+
+  <!-- Brand Icon -->
+  <g transform="translate(80, 75)">
+    <rect width="68" height="68" rx="18" fill="#1E293B" stroke="#10B981" stroke-width="2.5" />
+    <!-- Leaf / Pulse Healing Icon -->
+    <path d="M48 20 C48 36 34 50 18 50 C18 34 32 20 48 20 Z" fill="#10B981" />
+    <path d="M22 46 C32 38 40 28 44 22" stroke="#06B6D4" stroke-width="3" stroke-linecap="round" />
+    <circle cx="56" cy="14" r="5" fill="#10B981" filter="url(#glow)" />
+  </g>
+
+  <!-- Title & Subtitle -->
+  <text x="168" y="112" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="44" font-weight="800" fill="#FFFFFF" letter-spacing="-0.5">FluxHeal <tspan font-size="28" font-weight="500" fill="#94A3B8">(AuraFlow)</tspan></text>
+  <rect x="520" y="85" width="120" height="28" rx="14" fill="#1E293B" stroke="#10B981" stroke-width="1.5" />
+  <text x="580" y="104" font-family="'JetBrains Mono', monospace, Consolas" font-size="12" font-weight="700" fill="#10B981" text-anchor="middle">v2.0 PRODUCTION</text>
+
+  <text x="80" y="185" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="22" font-weight="600" fill="#E2E8F0">
+    Autonomous Self-Healing Clean-Tech ETL/ELT Telemetry Pipeline
+  </text>
+  <text x="80" y="215" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="400" fill="#94A3B8">
+    Zero-Downtime Micro-Quarantine &bull; AI Tier-2 Semantic Reflection &bull; Carbon-Aware Deferral &bull; Multi-Cloud Lakehouse &bull; Mobile NOC HITL
+  </text>
+
+  <!-- Metric Badges Row -->
+  <g transform="translate(80, 260)">
+    <!-- Badge 1: Tests -->
+    <rect x="0" y="0" width="230" height="70" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5" />
+    <circle cx="28" cy="35" r="14" fill="#10B981" opacity="0.2" />
+    <text x="28" y="40" font-family="sans-serif" font-size="14" fill="#10B981" text-anchor="middle">✓</text>
+    <text x="54" y="28" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#94A3B8" letter-spacing="1">VITEST SUITE</text>
+    <text x="54" y="52" font-family="'JetBrains Mono', monospace" font-size="18" font-weight="800" fill="#10B981">41/41 PASSING</text>
+
+    <!-- Badge 2: Latency -->
+    <rect x="250" y="0" width="240" height="70" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5" />
+    <circle cx="278" cy="35" r="14" fill="#06B6D4" opacity="0.2" />
+    <text x="278" y="40" font-family="sans-serif" font-size="14" fill="#06B6D4" text-anchor="middle">⚡</text>
+    <text x="304" y="28" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#94A3B8" letter-spacing="1">HOT-RULE CACHE</text>
+    <text x="304" y="52" font-family="'JetBrains Mono', monospace" font-size="18" font-weight="800" fill="#06B6D4">&lt; 0.06ms LATENCY</text>
+
+    <!-- Badge 3: Sinks & Compaction -->
+    <rect x="510" y="0" width="250" height="70" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5" />
+    <circle cx="538" cy="35" r="14" fill="#10B981" opacity="0.2" />
+    <text x="538" y="40" font-family="sans-serif" font-size="14" fill="#10B981" text-anchor="middle">📦</text>
+    <text x="564" y="28" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#94A3B8" letter-spacing="1">LAKEHOUSE PARQUET</text>
+    <text x="564" y="52" font-family="'JetBrains Mono', monospace" font-size="18" font-weight="800" fill="#10B981">4.25x COMPACTION</text>
+
+    <!-- Badge 4: Database -->
+    <rect x="780" y="0" width="260" height="70" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1.5" />
+    <circle cx="808" cy="35" r="14" fill="#06B6D4" opacity="0.2" />
+    <text x="808" y="40" font-family="sans-serif" font-size="14" fill="#06B6D4" text-anchor="middle">🐘</text>
+    <text x="834" y="28" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" fill="#94A3B8" letter-spacing="1">CONTAINERIZED PG16</text>
+    <text x="834" y="52" font-family="'JetBrains Mono', monospace" font-size="18" font-weight="800" fill="#06B6D4">TIMESCALEDB HYPER</text>
+  </g>
+
+  <!-- Bottom Accent Stripe -->
+  <rect x="0" y="414" width="1200" height="6" fill="url(#emerald-glow)" />
+</svg>
+

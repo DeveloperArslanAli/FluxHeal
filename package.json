@@ -1,0 +1,19 @@
+{
+  "name": "fluxheal-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"cyan.bold,green.bold\" \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "build:server": "npm --prefix server run build",
+    "build:client": "npm --prefix client run build",
+    "build": "npm run build:server && npm run build:client",
+    "test": "npm --prefix server test",
+    "pg:verify": "npm --prefix server run pg:verify",
+    "demo:stream": "npm --prefix server run demo:stream"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.5"
+  }
+}
